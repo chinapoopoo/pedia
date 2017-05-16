@@ -4,9 +4,15 @@ import { HttpService } from '../services/http.services';
 @Injectable()
 export class CommonProvider {
 
-    resource: string = '';
-
     constructor(private http: HttpService) { 
         
+    }
+
+    getMenu() {
+        return this.http.get('/menu')
+    }
+
+    getSubMenu() {
+        return this.http.get('/submenu')
     }
 }

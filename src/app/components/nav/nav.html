@@ -1,4 +1,9 @@
 <div fxLayout="column" fxFlex="100%">
     <h1>nav</h1>
-    <div *ngFor="let item of menu_list">{{item}}</div>
+    <div *ngFor="let item of menu_list">
+        {{item.name}}
+        <div *ngFor="let sub_item of item.list">
+            - {{sub_item.name}}
+        </div>
+    </div>
 </div>
