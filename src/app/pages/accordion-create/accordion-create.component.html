@@ -1,0 +1,11 @@
+<div *ngFor="let item of accordionList">
+  <input type="" name="" value="" [(ngModel)]="item.title" placeholder="제목">
+  <textarea rows="" cols="" [(ngModel)]="item.content" placeholder="내용"></textarea>
+  <button type="" (click)="editAccordion(item.id, item.title, item.content)">수정</button>
+  <button type="" (click)="deleteAccordion(item.id)">삭제</button>
+</div>
+<div>
+  <input type="" name="" value="" [(ngModel)]="newTitle" placeholder="제목">
+  <textarea rows="" cols="" [(ngModel)]="newContent" placeholder="내용"></textarea>
+  <button type="" (click)="addAccordion()">추가하기</button>
+</div>

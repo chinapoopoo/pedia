@@ -8,6 +8,10 @@ export class CommonProvider {
         
     }
 
+    getSubMenu() {
+        return this.http.get('/submenu')
+    }
+
     getMenu() {
         return this.http.get('/menu')
     }
@@ -19,9 +23,5 @@ export class CommonProvider {
     }
     deleteMenu(id) {
         return this.http.delete('/menu', {id: id})
-    }
-
-    getSubMenu() {
-        return this.http.get('/submenu')
     }
 }

@@ -1,14 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './pages/main/main.component';
-import { EditorCreateComponent } from './pages/editor-create/editor-create.component';
-import { ExpandCreateComponent } from './pages/expand-create/expand-create.component';
-import { TableCreateComponent } from './pages/table-create/table-create.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { EditorTemplateComponent } from './components/editor/editor-template';
-import { ExpandTemplateComponent } from './components/expand/expand-template';
+import { AccordionTemplateComponent } from './components/accordion/accordion-template';
 import { TableTemplateComponent } from './components/table/table-template';
 import { MenuSettingComponent } from './pages/menu-setting/menu-setting.component';
+import { WriterComponent } from './pages/writer/writer.component';
+import { ListComponent } from './pages/list/list.component';
 
 const appRoutes: Routes = [
   { 
@@ -24,8 +23,8 @@ const appRoutes: Routes = [
         component: EditorTemplateComponent
       },
       {
-        path: 'expand/:contentNo',
-        component: ExpandTemplateComponent
+        path: 'accordion/:contentNo',
+        component: AccordionTemplateComponent
       },
       {
         path: 'table/:contentNo',
@@ -42,16 +41,12 @@ const appRoutes: Routes = [
         component: MenuSettingComponent
       },
       {
-        path: 'editor',
-        component: EditorCreateComponent
+        path: 'write',
+        component: WriterComponent
       },
       {
-        path: 'expand',
-        component: ExpandCreateComponent
-      },
-      {
-        path: 'table',
-        component: TableCreateComponent
+        path: 'list',
+        component: ListComponent
       }
     ]
   },

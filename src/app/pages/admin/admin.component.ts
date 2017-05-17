@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
   }
 
-  goNav(des = '') {
+  goNav(des: string) {
     this.router.navigate([des]);
   }
 }

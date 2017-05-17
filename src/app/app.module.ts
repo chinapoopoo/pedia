@@ -13,39 +13,41 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/nav/nav';
 import { HttpService } from './services/http.services';
 import { EditorCreateComponent } from './pages/editor-create/editor-create.component';
-import { ExpandCreateComponent } from './pages/expand-create/expand-create.component';
+import { AccordionCreateComponent } from './pages/accordion-create/accordion-create.component';
 import { TableCreateComponent } from './pages/table-create/table-create.component';
 import { MainComponent } from './pages/main/main.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { EditorTemplateComponent } from './components/editor/editor-template';
-import { ExpandTemplateComponent } from './components/expand/expand-template';
+import { AccordionTemplateComponent } from './components/accordion/accordion-template';
 import { TableTemplateComponent } from './components/table/table-template';
 import { GlobalVariableService } from './services/global.variable';
 
 import { EditorProvider } from './providers/editor-provider';
-import { ExpandProvider } from './providers/expand-provider';
-import { GridProvider } from './providers/grid-provider';
-import { ListProvider } from './providers/list-provider';
+import { AccordionProvider } from './providers/accordion-provider';
 import { TableProvider } from './providers/table-provider';
 import { CommonProvider } from './providers/common-provider';
 import { UtilService } from './services/util.services';
 import { AdminComponent } from './pages/admin/admin.component';
 import { MenuSettingComponent } from './pages/menu-setting/menu-setting.component';
+import { WriterComponent } from './pages/writer/writer.component';
+import { ListComponent } from './pages/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     EditorCreateComponent,
-    ExpandCreateComponent,
+    AccordionCreateComponent,
     TableCreateComponent,
     MainComponent,
     WelcomeComponent,
     EditorTemplateComponent,
-    ExpandTemplateComponent,
+    AccordionTemplateComponent,
     TableTemplateComponent,
     AdminComponent,
-    MenuSettingComponent
+    MenuSettingComponent,
+    WriterComponent,
+    ListComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import { MenuSettingComponent } from './pages/menu-setting/menu-setting.componen
     MaterialModule,
     routing
   ],
-  providers: [HttpService, GlobalVariableService, EditorProvider, ExpandProvider, GridProvider, ListProvider, TableProvider, CommonProvider, UtilService],
+  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

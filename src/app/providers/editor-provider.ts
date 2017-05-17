@@ -4,9 +4,22 @@ import { HttpService } from '../services/http.services';
 @Injectable()
 export class EditorProvider {
 
-    resource: string = '';
+    resource: string = '/editor';
 
     constructor(private http: HttpService) { 
         
+    }
+
+    getEditor(id) {
+        return this.http.get(this.resource, {id: id})
+    }
+    addEditor(menuNo, title, content) {
+        return this.http.post(this.resource, {menuNo: menuNo, title: title, content: content})
+    }
+    editEditor(id, title, content) {
+        return this.http.put(this.resource, {id: id, title: title, content: content})
+    }
+    deleteEditor(id) {
+        return this.http.delete(this.resource, {id: id})
     }
 }
