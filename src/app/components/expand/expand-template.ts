@@ -1,20 +1,18 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'expand-template',
     templateUrl: 'expand-template.html'
 })
-export class ExpandTemplateComponent implements OnInit, OnChanges  {
-    @Input() now: string;
+export class ExpandTemplateComponent implements OnInit  {
 
-    constructor() {
+    contentNo: number = -1;
+
+    constructor(private router: ActivatedRoute) {
     }
 
     ngOnInit() { 
-
-    }
-
-    ngOnChanges() {
-        console.log(this.now);
+        this.contentNo = this.router.snapshot.params['contentNo'];
     }
 }

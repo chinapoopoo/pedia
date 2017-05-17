@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { HttpService } from '../../services/http.services';
 import { CommonProvider } from '../../providers/common-provider';
+import { GlobalVariableService } from '../../services/global.variable';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'navigation',
@@ -12,7 +14,7 @@ export class NavigationComponent implements OnInit, OnChanges  {
     menu_list: Array<any> = [];
     sub_menu_list: Array<any> = [];
 
-    constructor(private http:HttpService, private commonProvider: CommonProvider) {
+    constructor(private http:HttpService, private commonProvider: CommonProvider, private gVar: GlobalVariableService, private router: Router) {
     }
 
     ngOnInit() { 
@@ -43,5 +45,9 @@ export class NavigationComponent implements OnInit, OnChanges  {
                     menu[i].list.push(sub_menu[j]);
         }
         return menu;
+    }
+
+    goDetail(category, contentNo) {
+        this.router.navigate([this.gVar.category[category - 1].name, contentNo],)
     }
 }

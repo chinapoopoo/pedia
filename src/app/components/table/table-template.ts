@@ -1,20 +1,18 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'table-template',
     templateUrl: 'table-template.html'
 })
-export class TableTemplateComponent implements OnInit, OnChanges  {
-    @Input() now: string;
+export class TableTemplateComponent implements OnInit  {
 
-    constructor() {
+    contentNo: number = -1;
+
+    constructor(private router: ActivatedRoute) {
     }
 
     ngOnInit() { 
-
-    }
-
-    ngOnChanges() {
-        console.log(this.now);
+        this.contentNo = this.router.snapshot.params['contentNo'];
     }
 }

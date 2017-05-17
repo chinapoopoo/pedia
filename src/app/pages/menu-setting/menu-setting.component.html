@@ -1,0 +1,7 @@
+<div *ngFor="let item of menu_list">
+  <input type="text" [(ngModel)]="item.name">
+  <button type="" (click)="edit(item.id, item.name)">수정</button>
+  <button type="" (click)="delete(item.id)">삭제</button>
+</div>
+추가 메뉴명: <input type="" name="" value="" [(ngModel)]="newMenu">
+<button type="" (click)="add()">추가</button>

@@ -11,6 +11,15 @@ export class CommonProvider {
     getMenu() {
         return this.http.get('/menu')
     }
+    addMenu(name) {
+        return this.http.post('/menu', {name: name})
+    }
+    editMenu(id, name) {
+        return this.http.put('/menu', {id: id, name: name})
+    }
+    deleteMenu(id) {
+        return this.http.delete('/menu', {id: id})
+    }
 
     getSubMenu() {
         return this.http.get('/submenu')

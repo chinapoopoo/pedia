@@ -1,9 +1,9 @@
 <div fxLayout="column" fxFlex="100%">
     <h1>nav</h1>
     <div *ngFor="let item of menu_list">
-        {{item.name}}
-        <div *ngFor="let sub_item of item.list">
-            - {{sub_item.name}}
+        <h2 class="cursor">{{item.name}}</h2>
+        <div *ngFor="let sub_item of item.list" (click)="goDetail(sub_item.category, sub_item.contentNo)">
+            <h4 class="cursor">- {{sub_item.title}}</h4>
         </div>
     </div>
 </div>
