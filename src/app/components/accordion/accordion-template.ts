@@ -24,7 +24,8 @@ export class AccordionTemplateComponent implements OnInit  {
         .map(data => data.json())
         .subscribe(
             data => {
-                console.log(data);
+                this.title = data.info[0].title;
+                this.content = data.body;
             }
         );
     }
