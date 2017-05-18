@@ -19,7 +19,7 @@
   <!-- Bootstrap core CSS -->
   <link href="assets/js/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/fonts/font-awesome-4/css/font-awesome.min.css">
-
+  <link rel="stylesheet" type="text/css" href="assets/js/jquery.gritter/css/jquery.gritter.css" />
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -208,6 +208,32 @@
                   ['para', ['ul', 'ol', 'paragraph']],
                   ['height', ['height']]
               ]});
+      });
+  </script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+          //initialize the javascript
+          App.init();
+          $('input').iCheck({
+              checkboxClass: 'icheckbox_square-blue checkbox',
+              radioClass: 'iradio_square-blue'
+          });
+
+          $("#check-all").on('ifChanged',function(){
+              var checkboxes = $(".items").find(':checkbox');
+              if($(this).is(':checked')) {
+                  checkboxes.iCheck('check');
+              } else {
+                  checkboxes.iCheck('uncheck');
+              }
+          });
+
+        /*Slider update range*/
+          $("#price-range").slider().on("slide",function(e){
+              $("#price1").html("$" + e.value[0]);
+              $("#price2").html("$" + e.value[1]);
+          });
+
       });
   </script>
 

@@ -8,15 +8,15 @@
 .secondary-text-color  { color: #757575; }
 .divider-color         { border-color: #BDBDBD; }
 
-body {
-    height: 100%;
-    margin: 0;
-}
+/*body {*/
+    /*height: 100%;*/
+    /*margin: 0;*/
+/*}*/
 
-html {
-    height: 100%;
-}
+/*html {*/
+    /*height: 100%;*/
+/*}*/
 
-.cursor {
-    cursor: pointer;
-}
+/*.cursor {*/
+    /*cursor: pointer;*/
+/*}*/
