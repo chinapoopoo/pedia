@@ -42,7 +42,6 @@ export class TableCreateComponent implements OnInit {
       temp = [];
       for(var j = i * head_length; j < (i + 1) * head_length; j++) {
         temp.push(this.body_list[j]);
-        console.log(this.body_list[j]);
       }
       this.showed_body_list.push(temp);
     }
