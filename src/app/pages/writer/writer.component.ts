@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonProvider } from '../../providers/common-provider';
 import { GlobalVariableService } from '../../services/global.variable';
 import { AccordionProvider } from '../../providers/accordion-provider';
@@ -20,10 +20,11 @@ export class WriterComponent implements OnInit {
   showTableEditor: boolean = false;
   createdTableNo: number = -1;
 
-  constructor(private commonProvider: CommonProvider, private gVal: GlobalVariableService, private accordionProvider: AccordionProvider, private tableProvider: TableProvider) { }
+  constructor(private commonProvider: CommonProvider, private gVal: GlobalVariableService, private accordionProvider: AccordionProvider, private tableProvider: TableProvider, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.getMenu();
+    this.cdRef.detectChanges();
   }
 
   getMenu() {

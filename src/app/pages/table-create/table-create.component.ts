@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { TableProvider } from '../../providers/table-provider';
 
 @Component({
@@ -10,12 +10,42 @@ export class TableCreateComponent implements OnInit {
   @Input() tableNo: number = -1;
   head_list: Array<any> = [];
   body_list: Array<any> = [];
+  showed_body_list: Array<any> = [];
+  new_body: Array<any> = [];
   newHead: string = '';
 
-  constructor(private tableProvider: TableProvider) { }
+  constructor(private tableProvider: TableProvider, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
-  
+    this.cdRef.detectChanges();
+  }
+
+  createBodyArr() {
+    this.new_body = [];
+    for(var i = 0; i < this.head_list.length; i++) {
+      this.new_body.push(
+        {
+          order: this.head_list[i].order,
+          content: ''
+        }
+      );
+    }
+  }
+  createShowedBody() {
+    var body_length = this.body_list.length;
+    var head_length = this.head_list.length;
+    var temp: Array<any> = [];
+
+    this.showed_body_list = [];
+
+    for(var i = 0; i < body_length / head_length; i++) {
+      temp = [];
+      for(var j = i * head_length; j < (i + 1) * head_length; j++) {
+        temp.push(this.body_list[j]);
+        console.log(this.body_list[j]);
+      }
+      this.showed_body_list.push(temp);
+    }
   }
 
   getHead() {
@@ -23,8 +53,9 @@ export class TableCreateComponent implements OnInit {
     .subscribe(
       data => {
         this.head_list = data.json();
+        this.createBodyArr();
       }
-    )
+    );
   }
   addHead() {
     this.tableProvider.addTableHead(this.tableNo, this.newHead)
@@ -34,7 +65,7 @@ export class TableCreateComponent implements OnInit {
         this.newHead = '';
         this.getHead();
       }
-    )
+    );
   }
   editHead(idx, order) {
     this.tableProvider.editTableHead(this.tableNo, this.head_list[idx].name, order)
@@ -43,7 +74,7 @@ export class TableCreateComponent implements OnInit {
         console.log('헤더 수정 완료.');
         this.getHead();
       }
-    )
+    );
   }
   deleteHead(order) {
     this.tableProvider.deleteTableHead(this.tableNo, order)
@@ -52,7 +83,7 @@ export class TableCreateComponent implements OnInit {
         console.log('헤더 삭제 완료.');
         this.getHead();
       }
-    )
+    );
   }
 
   getBody() {
@@ -60,7 +91,18 @@ export class TableCreateComponent implements OnInit {
     .subscribe(
       data => {
         this.body_list = data.json();
+        this.createShowedBody();
       }
-    )
+    );
+  }
+  addBody() {
+    this.tableProvider.addTableBody(this.tableNo, this.new_body)
+    .subscribe(
+      data => {
+        console.log('추가완료');
+        this.getBody();
+        this.createBodyArr();
+      }
+    );
   }
 }

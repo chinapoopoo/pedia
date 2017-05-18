@@ -11,6 +11,14 @@
     </th>
   </thead>
   <tbody>
-    
+    <template *ngFor="let item of showed_body_list">
+      <td *ngFor="let sub_item of item">{{sub_item.content}}</td>
+    </template>
   </tbody>
 </table>
+<span *ngFor="let item of new_body">
+  <input type="text" name="" value="" [(ngModel)]="item.content"> 
+</span>
+<div>
+  <button type="" (click)="addBody()">추가</button>
+</div>
