@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpService } from '../../services/http.services';
 import { CommonProvider } from '../../providers/common-provider';
 import { GlobalVariableService } from '../../services/global.variable';
@@ -10,10 +10,11 @@ import { Router } from '@angular/router';
     styleUrls: ['./nav.scss'],
     providers: []
 })
-export class NavigationComponent implements OnInit, OnChanges  {
+export class NavigationComponent implements OnInit  {
     showed_menu: Array<any> = [];
     menu_list: Array<any> = [];
     sub_menu_list: Array<any> = [];
+    search_txt: string = '';
 
     constructor(private http:HttpService, private commonProvider: CommonProvider, private gVar: GlobalVariableService, private router: Router) {
     }
@@ -34,10 +35,6 @@ export class NavigationComponent implements OnInit, OnChanges  {
         );
     }
 
-    ngOnChanges() {
-        
-    }
-
     arrMenu(menu: Array<any>, sub_menu: Array<any>) {
         for(var i = 0; i < menu.length; i++) {
             menu[i].list = [];
@@ -50,5 +47,10 @@ export class NavigationComponent implements OnInit, OnChanges  {
 
     goDetail(category, contentNo) {
         this.router.navigate([this.gVar.category[category - 1].name, contentNo],)
+    }
+
+    search() {
+        this.router.navigate(['/search', this.search_txt]);
+        this.search_txt = '';
     }
 }
