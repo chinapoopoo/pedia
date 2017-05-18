@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'navigation',
     templateUrl: 'nav.html',
+    styleUrls: ['./nav.scss'],
     providers: []
 })
 export class NavigationComponent implements OnInit, OnChanges  {

@@ -1,12 +1,19 @@
-<md-sidenav-container fxFlexFill>
-  <div class="header dark-primary-color" fxLayoutAlign="start center">
-    <button md-button (click)="is_show_nav = !is_show_nav; sidenav.toggle()"><md-icon>menu</md-icon></button>
-    <span class="text-primary-color">한동피디아</span>
+
+<div id="head-nav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="fa fa-gear"></span>
+      </button>
+      <a class="navbar-brand" href="#"><span>Pedia</span></a>
+    </div>
   </div>
-  <md-sidenav #sidenav mode="over" opened="false">
-    <navigation></navigation>
-  </md-sidenav>
-  <div class="content" fxFlex="grow">
-    <router-outlet></router-outlet>
+</div>
+<div id="cl-wrapper" class="fixed-menu">
+  <navigation></navigation>
+  <div class="container-fluid" id="pcont">
+    <div class="cl-mcont">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-</md-sidenav-container>
+</div>
