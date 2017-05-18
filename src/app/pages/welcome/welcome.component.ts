@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonProvider } from '../../providers/common-provider';
+import { Router } from '@angular/router';
+import { GlobalVariableService } from '../../services/global.variable';
 
 @Component({
   selector: 'app-welcome',
@@ -11,7 +13,7 @@ export class WelcomeComponent implements OnInit {
   search_txt: string = '';
   search_result: Array<any> = [];
 
-  constructor(private route: ActivatedRoute, private commonProvider: CommonProvider) { }
+  constructor(private route: ActivatedRoute, private commonProvider: CommonProvider, private router: Router, private gVar: GlobalVariableService) { }
 
   ngOnInit() {
     this.route.params
@@ -33,5 +35,8 @@ export class WelcomeComponent implements OnInit {
         this.search_result = data.json();
       }
     );
+  }
+  goDetail(category, contentNo) {
+    this.router.navigate([this.gVar.category[category-1].name, contentNo],)
   }
 }
