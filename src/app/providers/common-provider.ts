@@ -27,4 +27,8 @@ export class CommonProvider {
     deleteSubMenu(id) {
         return this.http.delete('/submenu', {id: id})
     }
+
+    search(input) {
+        return this.http.get('/search', {search: input})
+    }
 }

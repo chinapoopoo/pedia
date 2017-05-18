@@ -19,6 +19,10 @@ const appRoutes: Routes = [
         component: WelcomeComponent
       },
       {
+        path: 'search/:search',
+        component: WelcomeComponent
+      },
+      {
         path: 'editor/:contentNo',
         component: EditorTemplateComponent
       },
