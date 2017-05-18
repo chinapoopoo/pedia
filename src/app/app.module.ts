@@ -31,6 +31,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { MenuSettingComponent } from './pages/menu-setting/menu-setting.component';
 import { WriterComponent } from './pages/writer/writer.component';
 import { ListComponent } from './pages/list/list.component';
+import { SafeHtmlPipe } from './components/safehtml';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ListComponent } from './pages/list/list.component';
     MenuSettingComponent,
     WriterComponent,
     ListComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,

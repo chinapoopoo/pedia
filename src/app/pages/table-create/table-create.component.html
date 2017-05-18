@@ -11,9 +11,9 @@
     </th>
   </thead>
   <tbody>
-    <template *ngFor="let item of showed_body_list">
+    <tr *ngFor="let item of showed_body_list">
       <td *ngFor="let sub_item of item">{{sub_item.content}}</td>
-    </template>
+    </tr>
   </tbody>
 </table>
 <span *ngFor="let item of new_body">
