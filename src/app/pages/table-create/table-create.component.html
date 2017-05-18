@@ -1,1 +1,16 @@
-{{tableNo}}
+<table>
+  <thead>
+    <th *ngFor="let item of head_list; let idx = index;">
+      <input type="" name="" value="" [(ngModel)]="item.name" (ngModelChange)="item.name = $event">
+      <button type="" (click)="editHead(idx, item.order)">수정</button>
+      <button (click)="deleteHead(item.order)">삭제</button>
+    </th>
+    <th>
+      <input type="" name="" value="" placeholder="" [(ngModel)]="newHead">
+      <button type="" (click)="addHead()">추가</button>
+    </th>
+  </thead>
+  <tbody>
+    
+  </tbody>
+</table>
