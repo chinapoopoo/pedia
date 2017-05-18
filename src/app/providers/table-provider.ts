@@ -3,9 +3,9 @@ import { HttpService } from '../services/http.services';
 
 @Injectable()
 export class TableProvider {
-
     resource: string = '/table';
     resource2: string = '/table/head';
+    resource3: string = '/table/body';
 
     constructor(private http: HttpService) { 
         
@@ -30,4 +30,18 @@ export class TableProvider {
     addTableHead(tableNo, name) {
         return this.http.post(this.resource2, {tableNo: tableNo, name: name})
     }
+    editTableHead(tableNo, name, order) {
+        return this.http.put(this.resource2, {tableNo: tableNo, name: name, order: order})
+    }
+    deleteTableHead(tableNo, order) {
+        return this.http.delete(this.resource2, {tableNo: tableNo, order: order})
+    }
+
+    getTableBody(tableNo) {
+        return this.http.get(this.resource3, {tableNo: tableNo})
+    }
+    addTableBody(tableNo, data) {
+        return this.http.post(this.resource3, {tableNo, data})
+    }
+    // editTableBody(tableNo, row, order)
 }

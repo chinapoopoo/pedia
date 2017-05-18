@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, Input } from '@angular/core';
 import { EditorProvider } from '../../providers/editor-provider';
 
 declare let CKEDITOR:any;
+declare let $:any;
 
 @Component({
   selector: 'editor-creator',
@@ -15,7 +16,7 @@ export class EditorCreateComponent implements OnInit, AfterViewInit {
   constructor(private editorProvider: EditorProvider) { }
 
   ngOnInit() {
-
+    $.getScript("assets/ckeditor/ckeditor.js", function() { });
   }
 
   ngAfterViewInit() {

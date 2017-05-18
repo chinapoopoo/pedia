@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonProvider } from '../../providers/common-provider';
 import { GlobalVariableService } from '../../services/global.variable';
 import { AccordionProvider } from '../../providers/accordion-provider';
+import { TableProvider } from '../../providers/table-provider';
 
 @Component({
   selector: 'app-writer',
@@ -11,14 +12,15 @@ import { AccordionProvider } from '../../providers/accordion-provider';
 
 export class WriterComponent implements OnInit {
   menu_list: Array<any> = [];
-  category: Array<any> = [];
   selectedMenu: number = 0;
-  selectedCategory: string = this.gVal.category[0].name;
+  selectedCategory: string = '';
   title: string = '';
   showAccordionEditor: boolean = false;
   createdAccordionNo: number = -1;
+  showTableEditor: boolean = false;
+  createdTableNo: number = -1;
 
-  constructor(private commonProvider: CommonProvider, private gVal: GlobalVariableService, private accordionProvider: AccordionProvider) { }
+  constructor(private commonProvider: CommonProvider, private gVal: GlobalVariableService, private accordionProvider: AccordionProvider, private tableProvider: TableProvider) { }
 
   ngOnInit() {
     this.getMenu();
@@ -49,5 +51,14 @@ export class WriterComponent implements OnInit {
         this.showAccordionEditor = true;
       }
     );
+  }
+  createTable() {
+    this.tableProvider.addTable(this.selectedMenu, this.title)
+    .subscribe(
+      data => {
+        this.createdTableNo = data.json().id;
+        this.showTableEditor = true;
+      }
+    )
   }
 }
