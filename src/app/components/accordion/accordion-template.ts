@@ -15,8 +15,14 @@ export class AccordionTemplateComponent implements OnInit  {
     }
 
     ngOnInit() { 
-        this.contentNo = this.router.snapshot.params['contentNo'];
-        this.getAccordion();
+        this.router.params
+        .map(data => JSON.parse(JSON.stringify(data)))
+        .subscribe(
+            data => {
+            this.contentNo = data.contentNo;
+                this.getAccordion();
+            }
+        );
     }
 
     getAccordion() {
