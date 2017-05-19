@@ -1,15 +1,25 @@
-<h1>
-    {{title}}
-</h1>
-<table>
-  <thead>
-    <th *ngFor="let item of head_list; let idx = index;">
-      {{item.name}}
-    </th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of showed_body_list">
-      <td *ngFor="let sub_item of item">{{sub_item.content}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="page-head">
+  <h2>{{title}}</h2>
+</div>
+<div class="cl-mcont">
+  <div class="block-flat">
+    <div class="content">
+      <div class="table-responsive">
+        <table class="no-border green" id="datatable">
+          <thead class="no-border">
+          <tr>
+            <th *ngFor="let item of head_list; let idx = index;">
+              {{item.name}}
+            </th>
+          </tr>
+          </thead>
+          <tbody class="no-border-x">
+          <tr *ngFor="let item of showed_body_list">
+            <td *ngFor="let sub_item of item">{{sub_item.content}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
