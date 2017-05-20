@@ -51,8 +51,7 @@ import { LoginComponent } from './pages/login/login.component';
     WriterComponent,
     ListComponent,
     SafeHtmlPipe,
-    LoginComponent,
-    MapComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
