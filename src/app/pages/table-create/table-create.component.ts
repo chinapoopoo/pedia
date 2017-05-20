@@ -8,6 +8,7 @@ import { TableProvider } from '../../providers/table-provider';
 })
 export class TableCreateComponent implements OnInit {
   @Input() tableNo: number = -1;
+  @Input() isEdit: boolean = false;
 
   head_list: Array<any> = [];
   body_list: Array<any> = [];

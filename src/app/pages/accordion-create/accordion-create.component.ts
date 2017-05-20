@@ -8,6 +8,7 @@ import { AccordionProvider } from '../../providers/accordion-provider';
 })
 export class AccordionCreateComponent implements OnInit {
   @Input() accordionNo: number = -1;
+  @Input() isEdit: boolean = false;
 
   newTitle: string = '';
   newContent: string = '';
