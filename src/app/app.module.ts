@@ -33,6 +33,7 @@ import { WriterComponent } from './pages/writer/writer.component';
 import { ListComponent } from './pages/list/list.component';
 import { SafeHtmlPipe } from './components/safehtml';
 import { LoginComponent } from './pages/login/login.component';
+import { MapComponent } from './pages/map/map.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { LoginComponent } from './pages/login/login.component';
     WriterComponent,
     ListComponent,
     SafeHtmlPipe,
-    LoginComponent
+    LoginComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,

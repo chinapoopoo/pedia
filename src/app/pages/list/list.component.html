@@ -1,6 +1,6 @@
 <div *ngFor="let item of menu_list">
     <div class="cursor">{{item.name}}</div>
     <div class="cursor" *ngFor="let sub_item of item.list">
-        - {{sub_item.title}}<button type="" (click)="edit(sub_item.category, sub_item.contentNo)">수정</button><button type="" (click)="delete(sub_item.id)">삭제</button>
+        - {{sub_item.title}}<button class="btn btn-primary" type="" (click)="edit(sub_item.category, sub_item.contentNo)">수정</button><button type="" (click)="delete(sub_item.id)">삭제</button>
     </div>
 </div>
