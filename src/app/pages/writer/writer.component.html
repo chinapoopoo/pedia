@@ -1,23 +1,19 @@
-<div *ngIf="!isEdit">
-  메뉴선택: 
-  <select (change)="changedMenu($event.target.value)">
+<div class="col-sm-6" *ngIf="!isEdit">
+  <label>메뉴선택:</label>
+  <select (change)="changedMenu($event.target.value)" class="form-control">
     <option [value]="">선택해주세요</option>
     <option [value]="item.id" *ngFor="let item of menu_list">{{item.name}}</option>
   </select>
 </div>
-<div *ngIf="!isEdit">
-  유형선택: 
-  <select (change)="categoryChanged($event.target.value)">
+<div class="col-sm-6" *ngIf="!isEdit">
+  <label>유형선택: </label>
+  <select (change)="categoryChanged($event.target.value)" class="form-control">
     <option [value]="">선택해주세요</option>
     <option [value]="item.name" *ngFor="let item of gVal.category">{{item.name}}</option>
   </select>
 </div>
-<div>
-  제목: <input type="text" name="" value="" [(ngModel)]="title">
-</div>
-<br/>
 <div *ngIf="selectedCategory == 'editor'">
-  <editor-creator #editor [(title)]="title" [(menuNo)]="selectedMenu" [(isEdit)]="isEdit" [(contentNo)]="contentNo"></editor-creator>
+  <editor-creator [(title)]="title" [(menuNo)]="selectedMenu" [(isEdit)]="isEdit" [(contentNo)]="contentNo"></editor-creator>
 </div>
 <div *ngIf="selectedCategory == 'accordion'">
   <button type="" (click)="createAccordion()" *ngIf="!showAccordionEditor">새 아코디언 생성</button>
