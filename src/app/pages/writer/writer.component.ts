@@ -47,10 +47,12 @@ export class WriterComponent implements OnInit {
 
   getContent() {
     this.isEdit = true;
-    
+
     switch (this.selectedCategory) {
       case 'editor':
-        this.getEditor();
+        setTimeout(() => {
+          this.editor.getEditor();
+        }, 0);
         break;
       case 'accordion':
         this.showAccordionEditor = true;
@@ -77,19 +79,6 @@ export class WriterComponent implements OnInit {
   }
   changedMenu(value) {
     this.selectedMenu = value;
-  }
-
-  getEditor() {
-    this.editorProvider.getEditor(this.contentNo)
-    .map(data => data.json()[0])
-    .subscribe(
-      data => {
-        this.title = data.title;
-        setTimeout(() => {
-          this.editor.setContent(data.content);
-        }, 2000);
-      }
-    );
   }
 
   createAccordion() {

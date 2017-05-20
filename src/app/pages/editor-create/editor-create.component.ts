@@ -25,6 +25,19 @@ export class EditorCreateComponent implements OnInit, AfterViewInit {
     CKEDITOR.replace('editor1');
   }
 
+  getEditor() {
+    this.editorProvider.getEditor(this.contentNo)
+    .map(data => data.json()[0])
+    .subscribe(
+      data => {
+        this.title = data.title;
+        setTimeout(() => {
+          this.setContent(data.content);
+        }, 2000);
+      }
+    );
+  }
+
   getContent() {
     return CKEDITOR.instances['editor1'].getData();
   }
