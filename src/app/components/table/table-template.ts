@@ -17,8 +17,14 @@ export class TableTemplateComponent implements OnInit  {
     }
 
     ngOnInit() { 
-        this.contentNo = this.router.snapshot.params['contentNo'];
-        this.getTable();
+        this.router.params
+        .map(data => JSON.parse(JSON.stringify(data)))
+        .subscribe(
+            data => {
+            this.contentNo = data.contentNo;
+                this.getTable();
+            }
+        );
     }
 
     createShowedBody() {
@@ -29,11 +35,11 @@ export class TableTemplateComponent implements OnInit  {
         this.showed_body_list = [];
 
         for(var i = 0; i < body_length / head_length; i++) {
-        temp = [];
-        for(var j = i * head_length; j < (i + 1) * head_length; j++) {
-            temp.push(this.body_list[j]);
-        }
-        this.showed_body_list.push(temp);
+            temp = [];
+            for(var j = i * head_length; j < (i + 1) * head_length; j++) {
+                temp.push(this.body_list[j]);
+            }
+            this.showed_body_list.push(temp);
         }
     }
 

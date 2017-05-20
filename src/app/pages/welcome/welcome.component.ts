@@ -37,6 +37,9 @@ export class WelcomeComponent implements OnInit {
     );
   }
   goDetail(category, contentNo) {
-    this.router.navigate([this.gVar.category[category-1].name, contentNo],)
+    for(var i = 0; i < this.gVar.category.length; i++) {
+      if(this.gVar.category[i].id == category)
+        this.router.navigate([this.gVar.category[i].name, contentNo])
+    }
   }
 }

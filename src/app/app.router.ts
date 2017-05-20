@@ -8,6 +8,7 @@ import { TableTemplateComponent } from './components/table/table-template';
 import { MenuSettingComponent } from './pages/menu-setting/menu-setting.component';
 import { WriterComponent } from './pages/writer/writer.component';
 import { ListComponent } from './pages/list/list.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const appRoutes: Routes = [
   { 
@@ -53,6 +54,10 @@ const appRoutes: Routes = [
         component: ListComponent
       }
     ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '**',
