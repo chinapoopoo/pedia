@@ -12,6 +12,7 @@ export class AccordionCreateComponent implements OnInit {
   newTitle: string = '';
   newContent: string = '';
   accordionList: Array<any> = [];
+  title: string = '';
 
   constructor(private accordionProvider: AccordionProvider) { }
 
@@ -23,8 +24,17 @@ export class AccordionCreateComponent implements OnInit {
     .subscribe(
       data => {
         this.accordionList = data.json().body;
+        this.title = data.json().info[0].title;
       }
     )
+  }
+  editAccordionInfo() {
+    this.accordionProvider.editAccordion(this.accordionNo, this.title)
+    .subscribe(
+      data => {
+        console.log('어코디언 수정 완료.');
+      }
+    );
   }
   addAccordion() {
     this.accordionProvider.addAccordionDetail(this.accordionNo, this.newTitle, this.newContent)

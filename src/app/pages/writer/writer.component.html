@@ -12,7 +12,9 @@
     <option [value]="item.name" *ngFor="let item of gVal.category">{{item.name}}</option>
   </select>
 </div>
-제목: <input type="" name="" value="" [(title)]="title" *ngIf="!isEdit && selectedCategory">
+<div *ngIf="!isEdit && selectedCategory">
+  제목: <input type="" name="" value="" [(title)]="title">
+</div>
 <div *ngIf="selectedCategory == 'editor'">
   <editor-creator [(title)]="title" [(menuNo)]="selectedMenu" [(isEdit)]="isEdit" [(contentNo)]="contentNo"></editor-creator>
 </div>
@@ -22,5 +24,5 @@
 </div>
 <div *ngIf="selectedCategory == 'table'">
   <button type="" (click)="createTable()" *ngIf="!showTableEditor">새 테이블 생성</button>
-  <table-creator *ngIf="showTableEditor" [(tableNo)]="createdTableNo"></table-creator>
+  <table-creator #table *ngIf="isEdit || showTableEditor" [(tableNo)]="createdTableNo"></table-creator>
 </div>

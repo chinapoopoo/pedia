@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EditorProvider } from '../../providers/editor-provider';
 import { EditorCreateComponent } from '../editor-create/editor-create.component';
 import { AccordionCreateComponent } from '../accordion-create/accordion-create.component';
+import { TableCreateComponent } from '../table-create/table-create.component';
 
 @Component({
   selector: 'app-writer',
@@ -17,6 +18,7 @@ import { AccordionCreateComponent } from '../accordion-create/accordion-create.c
 export class WriterComponent implements OnInit {
   @ViewChild(EditorCreateComponent) editor: EditorCreateComponent;
   @ViewChild(AccordionCreateComponent) accordion: AccordionCreateComponent;
+  @ViewChild(TableCreateComponent) table: TableCreateComponent;
 
   menu_list: Array<any> = [];
   selectedMenu: number = 0;
@@ -60,7 +62,14 @@ export class WriterComponent implements OnInit {
         setTimeout(() => {
           this.accordion.getAccordion();
         }, 0);
-        break;    
+        break;
+      case 'table':
+        this.showTableEditor = true;
+        this.createdTableNo = this.contentNo;
+        setTimeout(() => {
+          this.table.getTable();
+        }, 0);
+        break;      
     }
   }
 
