@@ -50,4 +50,4 @@ export class TableTemplateComponent implements OnInit  {
             }
         );
     }
-}
+}   
