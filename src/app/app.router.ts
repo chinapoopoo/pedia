@@ -46,7 +46,7 @@ const appRoutes: Routes = [
         component: MenuSettingComponent
       },
       {
-        path: 'write',
+        path: 'write/:category/:contentNo',
         component: WriterComponent
       },
       {

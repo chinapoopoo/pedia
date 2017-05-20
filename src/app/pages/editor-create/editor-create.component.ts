@@ -12,6 +12,8 @@ declare let $:any;
 export class EditorCreateComponent implements OnInit, AfterViewInit {
   @Input() menuNo: number = 0;
   @Input() title: string = '';
+  @Input() isEdit: boolean = false;
+  @Input() contentNo: number = -1;
 
   constructor(private editorProvider: EditorProvider) { }
 
@@ -31,13 +33,21 @@ export class EditorCreateComponent implements OnInit, AfterViewInit {
   }
 
   saveEditor() {
-    this.editorProvider.addEditor(this.menuNo, this.title, this.getContent())
-    .subscribe(
-      data => {
-        console.log('에디터 저장 완료');
-      }
-    )
-  }
-  deleteEditor() {
+    if(this.isEdit) {
+      this.editorProvider.editEditor(this.contentNo, this.title, this.getContent())
+      .subscribe(
+        data => {
+          console.log('에디터 수정 완료');
+        }
+      );
+    }
+    else {
+      this.editorProvider.addEditor(this.menuNo, this.title, this.getContent())
+      .subscribe(
+        data => {
+          console.log('에디터 저장 완료');
+        }
+      );
+    }
   }
 }
