@@ -17,7 +17,7 @@ export class EditorProvider {
         return this.http.post(this.resource, {menuNo: menuNo, title: title, content: content})
     }
     editEditor(id, title, content) {
-        return this.http.put(this.resource, {title: title, content: content}, {id: id})
+        return this.http.put(this.resource, {id: id, title: title, content: content})
     }
     deleteEditor(id) {
         return this.http.delete(this.resource, {id: id})
