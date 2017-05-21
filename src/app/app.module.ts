@@ -33,7 +33,9 @@ import { WriterComponent } from './pages/writer/writer.component';
 import { ListComponent } from './pages/list/list.component';
 import { SafeHtmlPipe } from './components/safehtml';
 import { LoginComponent } from './pages/login/login.component';
-import { MapComponent } from './pages/map/map.component';
+import { ContactTemplateComponent } from './components/contact-template/contact-template.component';
+import { ContactCreateComponent } from './pages/contact-create/contact-create.component';
+import { ContactProvider } from './providers/contact-provider';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { MapComponent } from './pages/map/map.component';
     ListComponent,
     SafeHtmlPipe,
     LoginComponent,
-    MapComponent
+    ContactTemplateComponent,
+    ContactCreateComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,7 @@ import { MapComponent } from './pages/map/map.component';
     MaterialModule,
     routing
   ],
-  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, UtilService],
+  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, ContactProvider,UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
