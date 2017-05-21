@@ -38,11 +38,12 @@ export class ContactCreateComponent implements OnInit {
     .subscribe(
       data => {
         this.contactList = data.data;
+        this.title = data.info[0].title;
         this.cdRef.detectChanges();
       }
     )
   }
-  editConatact() {
+  editContact() {
     this.contactProvider.editContact(this.contactNo, this.title)
     .subscribe(
       data => {

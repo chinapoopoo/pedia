@@ -74,7 +74,14 @@ export class WriterComponent implements OnInit {
         setTimeout(() => {
           this.table.getTable();
         }, 0);
-        break;      
+        break;
+      case 'contact':
+        this.showContactEditor = true;
+        this.createdContactNo = this.contentNo;
+        setTimeout(() => {
+          this.contact.getContact();
+        }, 0);
+        break;
     }
   }
 

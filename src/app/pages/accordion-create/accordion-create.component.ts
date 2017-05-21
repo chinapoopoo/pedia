@@ -27,7 +27,7 @@ export class AccordionCreateComponent implements OnInit {
         this.accordionList = data.json().body;
         this.title = data.json().info[0].title;
       }
-    )
+    );
   }
   editAccordionInfo() {
     this.accordionProvider.editAccordion(this.accordionNo, this.title)
