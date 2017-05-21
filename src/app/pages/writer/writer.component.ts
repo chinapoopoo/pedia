@@ -8,6 +8,8 @@ import { EditorProvider } from '../../providers/editor-provider';
 import { EditorCreateComponent } from '../editor-create/editor-create.component';
 import { AccordionCreateComponent } from '../accordion-create/accordion-create.component';
 import { TableCreateComponent } from '../table-create/table-create.component';
+import { ContactProvider } from '../../providers/contact-provider';
+import { ContactCreateComponent } from '../contact-create/contact-create.component';
 
 @Component({
   selector: 'app-writer',
@@ -19,6 +21,7 @@ export class WriterComponent implements OnInit {
   @ViewChild(EditorCreateComponent) editor: EditorCreateComponent;
   @ViewChild(AccordionCreateComponent) accordion: AccordionCreateComponent;
   @ViewChild(TableCreateComponent) table: TableCreateComponent;
+  @ViewChild(ContactCreateComponent) contact: ContactCreateComponent;
 
   menu_list: Array<any> = [];
   selectedMenu: number = 0;
@@ -29,9 +32,11 @@ export class WriterComponent implements OnInit {
   createdAccordionNo: number = -1;
   showTableEditor: boolean = false;
   createdTableNo: number = -1;
+  showContactEditor: boolean = false;
+  createdContactNo: number = -1;
   isEdit: boolean = false;
 
-  constructor(private commonProvider: CommonProvider, private gVal: GlobalVariableService, private editorProvider: EditorProvider, private accordionProvider: AccordionProvider, private tableProvider: TableProvider, private cdRef: ChangeDetectorRef, private router: ActivatedRoute) { }
+  constructor(private commonProvider: CommonProvider, private gVal: GlobalVariableService, private editorProvider: EditorProvider, private accordionProvider: AccordionProvider, private tableProvider: TableProvider, private cdRef: ChangeDetectorRef, private router: ActivatedRoute, private contactProvider: ContactProvider) { }
 
   ngOnInit() {
     this.router.params
@@ -99,12 +104,23 @@ export class WriterComponent implements OnInit {
       }
     );
   }
+
   createTable() {
     this.tableProvider.addTable(this.selectedMenu, this.title)
     .subscribe(
       data => {
         this.createdTableNo = data.json().id;
         this.showTableEditor = true;
+      }
+    )
+  }
+
+  createContact() {
+    this.contactProvider.addContact(this.selectedMenu, this.title)
+    .subscribe(
+      data => {
+        this.createdContactNo = data.json().id;
+        this.showContactEditor = true;
       }
     )
   }
