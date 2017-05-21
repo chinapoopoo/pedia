@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { GlobalVariableService } from '../../services/global.variable';
 import { Router } from '@angular/router';
 
@@ -7,11 +7,14 @@ import { Router } from '@angular/router';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent implements OnInit, AfterViewInit {
 
   constructor(private gVar: GlobalVariableService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
   }
 
   goNav(des: string) {

@@ -42,6 +42,7 @@ export class WriterComponent implements OnInit {
     this.router.params
     .subscribe(
       data => {
+        this.isEdit = false;
         this.selectedCategory = data.category;
         this.contentNo = data.contentNo;
         if(this.contentNo && this.selectedCategory != 'new')
