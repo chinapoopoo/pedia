@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit, AfterViewInit {
+  selectedTab: string = 'main';
 
   constructor(private gVar: GlobalVariableService, private router: Router) { }
 
@@ -15,6 +16,14 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    if(this.router.url == '/admin') {
+      this.selectedTab = 'main';
+    }
+    else if(this.router.url == '/admin/list') {
+      this.selectedTab = 'list';
+    }
+    else
+      this.selectedTab = 'write'
   }
 
   goNav(des: string) {
