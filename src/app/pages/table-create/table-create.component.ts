@@ -85,7 +85,7 @@ export class TableCreateComponent implements OnInit {
     this.tableProvider.addTableHead(this.tableNo, this.newHead)
     .subscribe(
       data => {
-        console.log('헤더 생성 완료.');
+        console.log('헤더 생성 완료');
         this.newHead = '';
         this.getHead();
       }
@@ -95,7 +95,7 @@ export class TableCreateComponent implements OnInit {
     this.tableProvider.editTableHead(this.tableNo, this.head_list[idx].name, order)
     .subscribe(
       data => {
-        console.log('헤더 수정 완료.');
+        console.log('헤더 수정 완료');
         this.getHead();
       }
     );
@@ -104,7 +104,7 @@ export class TableCreateComponent implements OnInit {
     this.tableProvider.deleteTableHead(this.tableNo, order)
     .subscribe(
       data => {
-        console.log('헤더 삭제 완료.');
+        console.log('헤더 삭제 완료');
         this.getHead();
       }
     );
@@ -128,5 +128,23 @@ export class TableCreateComponent implements OnInit {
         this.createBodyArr();
       }
     );
+  }
+  editBody(row, order, content) {
+    this.tableProvider.editTableBody(this.tableNo, row, order, content)
+    .subscribe(
+      data => {
+        console.log('테이블 수정 완료');
+        this.getBody();
+      }
+    );
+  }
+  deleteBody(row) {
+    this.tableProvider.deleteTableBody(this.tableNo, row)
+    .subscribe(
+      data => {
+        console.log('삭제완료');
+        this.getBody();
+      }
+    )
   }
 }

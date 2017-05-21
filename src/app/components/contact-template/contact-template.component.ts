@@ -18,14 +18,19 @@ export class ContactTemplateComponent implements OnInit, AfterViewInit {
   map:any;
   markers:Array<any> = [];
   infoWindows:Array<any> = [];
-  mapOptions = {
-    center: new naver.maps.LatLng(36.0190335, 129.3433895),
-    zoom: 7
-  };
+  mapOptions = {};
 
   constructor(private contactProvider: ContactProvider, private router: ActivatedRoute) { }
 
   ngOnInit() {
+    if(!naver)
+      $.getScript("https://openapi.map.naver.com/openapi/v3/maps.js?clientId=GogcK7KSjaEKI2oNeUX6&submodules=geocoder", function() { });
+
+    this.mapOptions = {
+      center: new naver.maps.LatLng(36.0190335, 129.3433895),
+      zoom: 7
+    };
+
     this.router.params
       .map(data => JSON.parse(JSON.stringify(data)))
       .subscribe(

@@ -2,12 +2,14 @@
   제목: <input type="" name="" value="" [(ngModel)]="title">
   <button type="" (click)="editContact()">수정</button>
 </div>
+<br/>
 <div *ngFor="let item of contactList">
   이름: <input type="" name="" value="" [(ngModel)]="item.title">
   내용: <input type="" name="" value="" [(ngModel)]="item.content">
   연락처: <input type="phone" name="" value="" [(ngModel)]="item.tel">
   <button type="" (click)="editContactDetail(item.id, item.title, item.content, item.tel)">수정</button>
   <button type="" (click)="deleteContactDetail(item.id)">삭제</button>
+  <hr/>
 </div>
 <div>
   이름: <input type="" name="" value="" [(ngModel)]="newTitle">

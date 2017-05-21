@@ -46,11 +46,15 @@ export class EditorCreateComponent implements OnInit, AfterViewInit {
   }
 
   saveEditor() {
+    if(!this.title) {
+      alert('제목을 입력해주세요');
+      return ;
+    }
     if(this.isEdit) {
       this.editorProvider.editEditor(this.contentNo, this.title, this.getContent())
       .subscribe(
         data => {
-          console.log('에디터 수정 완료');
+          alert('에디터 수정 완료');
         }
       );
     }
@@ -58,7 +62,7 @@ export class EditorCreateComponent implements OnInit, AfterViewInit {
       this.editorProvider.addEditor(this.menuNo, this.title, this.getContent())
       .subscribe(
         data => {
-          console.log('에디터 저장 완료');
+          alert('에디터 저장 완료');
         }
       );
     }

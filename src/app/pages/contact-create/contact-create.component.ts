@@ -28,7 +28,8 @@ export class ContactCreateComponent implements OnInit {
   constructor(private contactProvider: ContactProvider, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
-  
+    if(!naver)
+      $.getScript("https://openapi.map.naver.com/openapi/v3/maps.js?clientId=GogcK7KSjaEKI2oNeUX6&submodules=geocoder", function() { });
   }
 
   getContact() {
@@ -44,6 +45,10 @@ export class ContactCreateComponent implements OnInit {
     );
   }
   editContact() {
+    if(!this.title) {
+      alert('제목을 입력해주세요');
+      return ;
+    }
     this.contactProvider.editContact(this.contactNo, this.title)
     .subscribe(
       data => {

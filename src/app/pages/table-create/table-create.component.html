@@ -2,6 +2,7 @@
   제목: <input type="" name="" value="" [(ngModel)]="title">
   <button type="" (click)="editTable()">수정</button>
 </div>
+<br/>
 <table >
   <thead>
     <th *ngFor="let item of head_list; let idx = index;">
@@ -9,20 +10,28 @@
       <button type="" (click)="editHead(idx, item.order)">수정</button>
       <button (click)="deleteHead(item.order)" *ngIf="!isEdit">삭제</button>
     </th>
-    <th *ngIf="!isEdit">
+    <th *ngIf="!isEdit && showed_body_list.length == 0">
       <input type="" name="" value="" placeholder="" [(ngModel)]="newHead">
       <button type="" (click)="addHead()">추가</button>
     </th>
+    <th *ngIf="isEdit">
+      삭제옵션
+    </th>
   </thead>
   <tbody>
-    <tr *ngFor="let item of showed_body_list">
-      <td *ngFor="let sub_item of item">{{sub_item.content}}</td>
+    <tr *ngFor="let item of showed_body_list; let idx = index">
+      <td *ngFor="let sub_item of item">
+        <input [(ngModel)]="sub_item.content"/>
+        <button type="" (click)="editBody(sub_item.row, sub_item.order, sub_item.content)">수정</button>
+      </td>
+      <td>
+        <button type="" (click)="deleteBody(showed_body_list[idx][0].row)">삭제</button>
+      </td>
     </tr>
   </tbody>
 </table>
+<br/>
 <span *ngFor="let item of new_body">
   <input type="text" name="" value="" [(ngModel)]="item.content"> 
 </span>
-<div>
-  <button type="" class="btn btn-primary" (click)="addBody()">추가</button>
-</div>
+<button type="" class="btn btn-primary" (click)="addBody()">추가</button>

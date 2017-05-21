@@ -41,7 +41,12 @@ export class TableProvider {
         return this.http.get(this.resource3, {tableNo: tableNo})
     }
     addTableBody(tableNo, data) {
-        return this.http.post(this.resource3, {tableNo, data})
+        return this.http.post(this.resource3, {tableNo: tableNo, data: data})
     }
-    // editTableBody(tableNo, row, order)
+    editTableBody(tableNo, row, order, content) {
+        return this.http.put(this.resource3, {tableNo: tableNo, row: row, order: order, content: content})
+    }
+    deleteTableBody(tableNo, row) {
+        return this.http.delete(this.resource3, {tableNo: tableNo, row: row})
+    }
 }

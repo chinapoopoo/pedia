@@ -90,7 +90,6 @@ export class WriterComponent implements OnInit {
     .subscribe(
       data => {
         this.menu_list = data.json();
-        this.selectedMenu = this.menu_list[0].id;
       }
     )
   }
@@ -103,6 +102,10 @@ export class WriterComponent implements OnInit {
   }
 
   createAccordion() {
+    if(!this.title) {
+      alert('제목을 입력해주세요');
+      return ;
+    }
     this.accordionProvider.addAccordion(this.selectedMenu, this.title)
     .subscribe(
       data => {
@@ -113,6 +116,10 @@ export class WriterComponent implements OnInit {
   }
 
   createTable() {
+    if(!this.title) {
+      alert('제목을 입력해주세요');
+      return ;
+    }
     this.tableProvider.addTable(this.selectedMenu, this.title)
     .subscribe(
       data => {
@@ -123,6 +130,10 @@ export class WriterComponent implements OnInit {
   }
 
   createContact() {
+    if(!this.title) {
+      alert('제목을 입력해주세요');
+      return ;
+    }
     this.contactProvider.addContact(this.selectedMenu, this.title)
     .subscribe(
       data => {
