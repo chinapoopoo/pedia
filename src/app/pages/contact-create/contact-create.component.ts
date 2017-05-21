@@ -41,7 +41,7 @@ export class ContactCreateComponent implements OnInit {
         this.title = data.info[0].title;
         this.cdRef.detectChanges();
       }
-    )
+    );
   }
   editContact() {
     this.contactProvider.editContact(this.contactNo, this.title)
