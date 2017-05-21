@@ -1,13 +1,26 @@
-<h1>{{title}}</h1>
+<div class="block-flat">
+<div class="row">
+  <div class="header">
+    <h2>{{title}}</h2>
+  </div>
+
 <div class="col-xs-3 no-padding">
   <br/>
-  <div *ngFor="let item of contactList; let idx = index" (click)="openInfo(item.addY, item.addX, idx)">
-    {{item.title}}
-    {{item.content}}
-    {{item.tel}}
-    <hr/>
+  <div class="content">
+    <div class="list-group">
+      <a class="list-group-item" *ngFor="let item of contactList; let idx = index" (click)="openInfo(item.addY, item.addX, idx)">
+        {{item.title}}
+        {{item.content}}
+        {{item.tel}}
+        <hr/>
+      </a>
+    </div>
   </div>
 </div>
-<div class="col-xs-9 no-padding">
-  <div id="map" style="width:100%; height: 90vh;"></div>
+  <div class="content">
+    <div class="col-xs-9 padding">
+      <div id="map" class="content map"></div>
+    </div>
+  </div>
+</div>
 </div>
