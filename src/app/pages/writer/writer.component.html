@@ -13,7 +13,7 @@
   </select>
 </div>
 <div *ngIf="!isEdit && selectedCategory">
-  제목: <input type="" name="" value="" [(title)]="title">
+  제목: <input type="" name="" value="" [(ngModel)]="title">
 </div>
 <div *ngIf="selectedCategory == 'editor'">
   <editor-creator #editor [(title)]="title" [(menuNo)]="selectedMenu" [(isEdit)]="isEdit" [(contentNo)]="contentNo"></editor-creator>
@@ -25,4 +25,8 @@
 <div *ngIf="selectedCategory == 'table'">
   <button type="" (click)="createTable()" *ngIf="!showTableEditor">새 테이블 생성</button>
   <table-creator #table *ngIf="showTableEditor" [(tableNo)]="createdTableNo" [(isEdit)]="isEdit"></table-creator>
+</div>
+<div *ngIf="selectedCategory == 'contact'">
+  <button type="" (click)="createContact()" *ngIf="!showContactEditor">새 컨텍트 생성</button>
+  <contact-creator #contact *ngIf="showContactEditor" [(contactNo)]="createdContactNo" [(isEdit)]="isEdit"></contact-creator>
 </div>
