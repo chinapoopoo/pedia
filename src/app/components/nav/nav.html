@@ -1,24 +1,22 @@
-
-
-    <div class="cl-toggle"><i class="fa fa-bars"></i></div>
-    <div class="cl-navblock">
-        <div class="menu-space">
-            <div class="content">
-                <ul class="cl-vnavigation">
-                    <li class="parent" *ngFor="let item of menu_list">
-                        <a href="#"><span>{{item.name}}</span></a>
-                        <ul class="sub-menu">
-                            <li *ngFor="let sub_item of item.list" >
-                                <a (click)="goDetail(sub_item.category, sub_item.contentNo)">
-                                    {{sub_item.title}}
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="text-right collapse-button" style="padding:7px 9px;">
-            <input type="text" class="form-control search" style="width: 100%;" placeholder="검색" (keyup.enter)="search()" [(ngModel)]="search_txt"/>
+<div class="cl-toggle"><i class="fa fa-bars"></i></div>
+<div class="cl-navblock">
+    <div class="menu-space">
+        <div class="content">
+            <ul class="cl-vnavigation">
+                <li class="parent" *ngFor="let item of menu_list">
+                    <a href="#"><span>{{item.name}}</span></a>
+                    <ul class="sub-menu">
+                        <li *ngFor="let sub_item of item.list" class="cursor" >
+                            <a (click)="goDetail(sub_item.category, sub_item.contentNo)">
+                                {{sub_item.title}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
+    <div class="text-right collapse-button" style="padding:7px 9px;">
+        <input type="text" class="form-control search" style="width: 100%;" placeholder="검색" (keyup.enter)="search()" [(ngModel)]="search_txt"/>
+    </div>
+</div>
