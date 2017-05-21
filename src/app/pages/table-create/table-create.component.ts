@@ -8,11 +8,14 @@ import { TableProvider } from '../../providers/table-provider';
 })
 export class TableCreateComponent implements OnInit {
   @Input() tableNo: number = -1;
+  @Input() isEdit: boolean = false;
+
   head_list: Array<any> = [];
   body_list: Array<any> = [];
   showed_body_list: Array<any> = [];
   new_body: Array<any> = [];
   newHead: string = '';
+  title: string = '';
 
   constructor(private tableProvider: TableProvider, private cdRef: ChangeDetectorRef) { }
 
@@ -45,6 +48,28 @@ export class TableCreateComponent implements OnInit {
       }
       this.showed_body_list.push(temp);
     }
+  }
+
+  getTable() {
+    this.tableProvider.getTable(this.tableNo)
+    .subscribe(
+      data => {
+        this.title = data.json().info[0].title;
+        this.head_list = data.json().head;
+        this.body_list = data.json().body;
+        this.createBodyArr();
+        this.createShowedBody();
+      }
+    )
+  }
+
+  editTable() {
+    this.tableProvider.editTable(this.tableNo, this.title)
+    .subscribe(
+      data => {
+        console.log('table edit success');
+      }
+    )
   }
 
   getHead() {

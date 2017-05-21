@@ -34,6 +34,9 @@ import { ListComponent } from './pages/list/list.component';
 import { SafeHtmlPipe } from './components/safehtml';
 import { LoginComponent } from './pages/login/login.component';
 import { CreditComponent } from './pages/credit/credit.component';
+import { ContactTemplateComponent } from './components/contact-template/contact-template.component';
+import { ContactCreateComponent } from './pages/contact-create/contact-create.component';
+import { ContactProvider } from './providers/contact-provider';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { CreditComponent } from './pages/credit/credit.component';
     ListComponent,
     SafeHtmlPipe,
     LoginComponent,
+    ContactTemplateComponent,
+    ContactCreateComponent,
+    LoginComponent,
     CreditComponent
   ],
   imports: [
@@ -64,7 +70,7 @@ import { CreditComponent } from './pages/credit/credit.component';
     MaterialModule,
     routing
   ],
-  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, UtilService],
+  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, ContactProvider,UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

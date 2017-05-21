@@ -12,15 +12,17 @@
     <option [value]="item.name" *ngFor="let item of gVal.category">{{item.name}}</option>
   </select>
 </div>
-제목: <input type="" name="" value="" [(title)]="title" *ngIf="!isEdit && selectedCategory">
+<div *ngIf="!isEdit && selectedCategory">
+  제목: <input type="" name="" value="" [(title)]="title">
+</div>
 <div *ngIf="selectedCategory == 'editor'">
-  <editor-creator [(title)]="title" [(menuNo)]="selectedMenu" [(isEdit)]="isEdit" [(contentNo)]="contentNo"></editor-creator>
+  <editor-creator #editor [(title)]="title" [(menuNo)]="selectedMenu" [(isEdit)]="isEdit" [(contentNo)]="contentNo"></editor-creator>
 </div>
 <div *ngIf="selectedCategory == 'accordion'">
   <button type="" (click)="createAccordion()" *ngIf="!showAccordionEditor">새 아코디언 생성</button>
-  <accordion-creator #accordion *ngIf="isEdit || showAccordionEditor" [(accordionNo)]="createdAccordionNo"></accordion-creator>
+  <accordion-creator #accordion *ngIf="showAccordionEditor" [(accordionNo)]="createdAccordionNo" [(isEdit)]="isEdit"></accordion-creator>
 </div>
 <div *ngIf="selectedCategory == 'table'">
   <button type="" (click)="createTable()" *ngIf="!showTableEditor">새 테이블 생성</button>
-  <table-creator *ngIf="showTableEditor" [(tableNo)]="createdTableNo"></table-creator>
+  <table-creator #table *ngIf="showTableEditor" [(tableNo)]="createdTableNo" [(isEdit)]="isEdit"></table-creator>
 </div>
