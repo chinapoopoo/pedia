@@ -6,7 +6,8 @@
   이름: <input type="" name="" value="" [(ngModel)]="item.title">
   내용: <input type="" name="" value="" [(ngModel)]="item.content">
   연락처: <input type="phone" name="" value="" [(ngModel)]="item.tel">
-  <button type="" (click)="editContactDetail(item.id, item.title, item.content, item.tel)"></button>
+  <button type="" (click)="editContactDetail(item.id, item.title, item.content, item.tel)">수정</button>
+  <button type="" (click)="deleteContactDetail(item.id)">삭제</button>
 </div>
 <div>
   이름: <input type="" name="" value="" [(ngModel)]="newTitle">

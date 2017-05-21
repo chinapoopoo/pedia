@@ -83,6 +83,15 @@ export class ContactCreateComponent implements OnInit {
       }
     )
   }
+  deleteContactDetail(id) {
+    this.contactProvider.deleteContactDetail(id)
+    .subscribe(
+      data => {
+        console.log('contact detail delete success');
+        this.getContact();
+      }
+    )
+  }
 
   clear() {
     this.newAddr = '';
