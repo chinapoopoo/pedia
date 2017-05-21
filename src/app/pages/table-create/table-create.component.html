@@ -8,13 +8,13 @@
     <th *ngFor="let item of head_list; let idx = index;">
       <input type="" name="" value="" [(ngModel)]="item.name" (ngModelChange)="item.name = $event">
       <button type="" (click)="editHead(idx, item.order)">수정</button>
-      <button (click)="deleteHead(item.order)" *ngIf="!isEdit">삭제</button>
+      <button (click)="deleteHead(item.order)" *ngIf="showed_body_list.length == 0">삭제</button>
     </th>
-    <th *ngIf="!isEdit && showed_body_list.length == 0">
+    <th *ngIf="showed_body_list.length == 0">
       <input type="" name="" value="" placeholder="" [(ngModel)]="newHead">
       <button type="" (click)="addHead()">추가</button>
     </th>
-    <th *ngIf="isEdit">
+    <th *ngIf="showed_body_list.length != 0">
       삭제옵션
     </th>
   </thead>
@@ -34,4 +34,4 @@
 <span *ngFor="let item of new_body">
   <input type="text" name="" value="" [(ngModel)]="item.content"> 
 </span>
-<button type="" class="btn btn-primary" (click)="addBody()">추가</button>
+<button *ngIf="new_body.length != 0" type="" class="btn btn-primary" (click)="addBody()">추가</button>

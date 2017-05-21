@@ -23,8 +23,7 @@ export class ContactTemplateComponent implements OnInit, AfterViewInit {
   constructor(private contactProvider: ContactProvider, private router: ActivatedRoute) { }
 
   ngOnInit() {
-    if(!naver)
-      $.getScript("https://openapi.map.naver.com/openapi/v3/maps.js?clientId=GogcK7KSjaEKI2oNeUX6&submodules=geocoder", function() { });
+    $.getScript("https://openapi.map.naver.com/openapi/v3/maps.js?clientId=GogcK7KSjaEKI2oNeUX6&submodules=geocoder", function() { });
 
     this.mapOptions = {
       center: new naver.maps.LatLng(36.0190335, 129.3433895),

@@ -33,7 +33,7 @@ export class EditorCreateComponent implements OnInit, AfterViewInit {
         this.title = data.title;
         setTimeout(() => {
           this.setContent(data.content);
-        }, 2000);
+        }, 0);
       }
     );
   }

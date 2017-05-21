@@ -46,10 +46,10 @@ export class WriterComponent implements OnInit {
         this.contentNo = data.contentNo;
         if(this.contentNo && this.selectedCategory != 'new')
           this.getContent();
+        this.selectedCategory = data.category;
       }
     );
     this.getMenu();
-    this.cdRef.detectChanges();
   }
 
   getContent() {

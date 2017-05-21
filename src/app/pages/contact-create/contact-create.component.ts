@@ -28,8 +28,7 @@ export class ContactCreateComponent implements OnInit {
   constructor(private contactProvider: ContactProvider, private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
-    if(!naver)
-      $.getScript("https://openapi.map.naver.com/openapi/v3/maps.js?clientId=GogcK7KSjaEKI2oNeUX6&submodules=geocoder", function() { });
+    $.getScript("https://openapi.map.naver.com/openapi/v3/maps.js?clientId=GogcK7KSjaEKI2oNeUX6&submodules=geocoder", function() { });
   }
 
   getContact() {
