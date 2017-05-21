@@ -15,7 +15,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
   login() {
-    return this.http.get('/auth/kakao')
+    return this.http.get('https://kauth.kakao.com/oauth/authorize?client_id=85c381111c1777518b08a613177097d8&redirect_uri=/oauth&response_type=code')
         .map(data => {
           data.json()[0]
           alert('1')

@@ -33,6 +33,7 @@ import { WriterComponent } from './pages/writer/writer.component';
 import { ListComponent } from './pages/list/list.component';
 import { SafeHtmlPipe } from './components/safehtml';
 import { LoginComponent } from './pages/login/login.component';
+import { CreditComponent } from './pages/credit/credit.component';
 import { ContactTemplateComponent } from './components/contact-template/contact-template.component';
 import { ContactCreateComponent } from './pages/contact-create/contact-create.component';
 import { ContactProvider } from './providers/contact-provider';
@@ -57,6 +58,8 @@ import { ContactProvider } from './providers/contact-provider';
     LoginComponent,
     ContactTemplateComponent,
     ContactCreateComponent,
+    LoginComponent,
+    CreditComponent
   ],
   imports: [
     BrowserModule,

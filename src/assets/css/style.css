@@ -5489,59 +5489,8 @@ ul.timeline li > .date {
   }
 }
 @media (min-width: 768px) and (max-width: 979px) {
-  .butstyle {
-    width: 30.9%;
-  }
-  .butstyle:first-child {
-    margin-left: 0;
-  }
-  .navbar-default .navbar-brand {
-    background-position: 0 11px;
-    height: 50px;
-    width: 45px;
-    padding-left: 26px;
-  }
-  .navbar-default .navbar-brand span {
-    display: none;
-  }
-  .cl-sidebar {
-    width: 55px;
-  }
-  #pcont {
-    margin-left: 55px;
-  }
-  #cl-wrapper.fixed-menu .menu-space {
-    width: 55px;
-  }
-  .cl-vnavigation li {
-    position: relative;
-  }
-  .cl-vnavigation .parent a {
-    background: none;
-  }
-  .cl-vnavigation li a i {
-    margin: 0;
-    font-size: 17px;
-  }
-  .cl-vnavigation li a span {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  .cl-sidebar .side-user {
-    display: none;
-  }
-  .cl-sidebar .cl-vnavigation {
-    display: block !important;
-  }
-  .cl-vnavigation li ul {
-    display: none !important;
-  }
-  .cl-sidebar .collapse-button {
-    display: none;
-  }
-  .cl-sidebar .collapse-button .search {
-    display: none;
+  .cl-sidebar .cl-vnavigation{
+    display:block !important;
   }
 }
 @media (max-width: 767px) {
