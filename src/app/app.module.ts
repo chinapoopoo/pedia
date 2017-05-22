@@ -38,6 +38,7 @@ import { ContactProvider } from './providers/contact-provider';
 
 import { CookieService, CookieOptions } from 'angular2-cookie/core';
 import { LoginComponent } from './pages/login/login.component';
+import { LoginSession } from './services/login.session';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import { LoginComponent } from './pages/login/login.component';
     BrowserAnimationsModule,
     routing
   ],
-  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, ContactProvider, UtilService, CookieService, { provide: CookieOptions, useValue: {} }],
+  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, ContactProvider, UtilService, CookieService, LoginSession, { provide: CookieOptions, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

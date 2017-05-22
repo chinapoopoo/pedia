@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { GlobalVariableService } from '../../services/global.variable';
 import { Router } from '@angular/router';
+import { LoginSession } from '../../services/login.session';
 
 @Component({
   selector: 'app-admin',
@@ -10,12 +11,37 @@ import { Router } from '@angular/router';
 export class AdminComponent implements OnInit, AfterViewInit {
   selectedTab: string = 'main';
 
-  constructor(private gVar: GlobalVariableService, private router: Router) { }
+  constructor(private gVar: GlobalVariableService, private router: Router, private loginSession: LoginSession) { }
 
   ngOnInit() {
+    this.ckNgoLogin();
+    this.checkURL();
   }
 
   ngAfterViewInit() {
+    this.checkURL();
+  }
+
+  goNav(des: string) {
+    if(!this.loginSession.isLoggedIn()) {
+      this.router.navigate(['/admin/login']);
+      return ;
+    }
+    this.router.navigate([des]);
+  }
+
+  logout() {
+    this.loginSession.setLogin(false);
+    this.router.navigate(['/']);
+  }
+
+  ckNgoLogin() {
+    if(!this.loginSession.isLoggedIn()) {
+      this.router.navigate(['/admin/login']);
+    }
+  }
+
+  checkURL() {
     if(this.router.url == '/admin') {
       this.selectedTab = 'main';
     }
@@ -27,9 +53,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
     }
     else 
       this.selectedTab = 'write'
-  }
 
-  goNav(des: string) {
-    this.router.navigate([des]);
+    if(!this.loginSession.isLoggedIn())
+      this.selectedTab = 'login';
   }
 }
