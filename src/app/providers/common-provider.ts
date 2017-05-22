@@ -31,4 +31,8 @@ export class CommonProvider {
     search(input) {
         return this.http.get('/search', {search: input})
     }
+
+    login(id, pwd) {
+        return this.http.post('/login', {id: id, pwd: pwd})
+    }
 }

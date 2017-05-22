@@ -9,8 +9,8 @@ import { MenuSettingComponent } from './pages/menu-setting/menu-setting.componen
 import { WriterComponent } from './pages/writer/writer.component';
 import { CreditComponent } from './pages/credit/credit.component';
 import { ListComponent } from './pages/list/list.component';
-import { LoginComponent } from './pages/login/login.component';
 import { ContactTemplateComponent } from './components/contact-template/contact-template.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const appRoutes: Routes = [
   { 
@@ -62,12 +62,12 @@ const appRoutes: Routes = [
       {
         path: 'list',
         component: ListComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
       }
     ]
-  },
-  {
-    path: 'login',
-    component: LoginComponent
   },
   {
     path: '**',

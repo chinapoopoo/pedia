@@ -22,7 +22,10 @@ export class AdminComponent implements OnInit, AfterViewInit {
     else if(this.router.url == '/admin/list') {
       this.selectedTab = 'list';
     }
-    else
+    else if(this.router.url == '/admin/login') {
+      this.selectedTab = 'login';
+    }
+    else 
       this.selectedTab = 'write'
   }
 

@@ -31,11 +31,13 @@ import { MenuSettingComponent } from './pages/menu-setting/menu-setting.componen
 import { WriterComponent } from './pages/writer/writer.component';
 import { ListComponent } from './pages/list/list.component';
 import { SafeHtmlPipe } from './components/safehtml';
-import { LoginComponent } from './pages/login/login.component';
 import { CreditComponent } from './pages/credit/credit.component';
 import { ContactTemplateComponent } from './components/contact-template/contact-template.component';
 import { ContactCreateComponent } from './pages/contact-create/contact-create.component';
 import { ContactProvider } from './providers/contact-provider';
+
+import { CookieService, CookieOptions } from 'angular2-cookie/core';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -54,11 +56,10 @@ import { ContactProvider } from './providers/contact-provider';
     WriterComponent,
     ListComponent,
     SafeHtmlPipe,
-    LoginComponent,
     ContactTemplateComponent,
     ContactCreateComponent,
-    LoginComponent,
-    CreditComponent
+    CreditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +69,7 @@ import { ContactProvider } from './providers/contact-provider';
     BrowserAnimationsModule,
     routing
   ],
-  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, ContactProvider,UtilService],
+  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, ContactProvider, UtilService, CookieService, { provide: CookieOptions, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
