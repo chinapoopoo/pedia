@@ -11,7 +11,7 @@ import { LoginSession } from '../../services/login.session';
 export class AdminComponent implements OnInit, AfterViewInit {
   selectedTab: string = 'main';
 
-  constructor(private gVar: GlobalVariableService, private router: Router, private loginSession: LoginSession) { }
+  constructor(private gVar: GlobalVariableService, private router: Router, public loginSession: LoginSession) { }
 
   ngOnInit() {
     if(!this.loginSession.isLoggedIn()) {

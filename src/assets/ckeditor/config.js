@@ -37,5 +37,5 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
 	//config.filebrowserUploadUrl = 'http://homiego.hssa.me:3000/padmin/story/upload'
-	config.filebrowserUploadUrl = '/padmin/story/upload'
+	config.filebrowserUploadUrl = '/upload'
 };
