@@ -20,12 +20,10 @@ export class LoginComponent implements OnInit {
     .map(data => data.json())
     .subscribe(
       data => {
-        console.log(data);
-        console.log('로그인 성공');
-      },
-      error => {
-        console.log(error);
-        console.log('로그인 실패');
+        if(data.length == 0)
+          alert('로그인 실패');
+        else
+          alert('환영합니다');
       }
     );
   }

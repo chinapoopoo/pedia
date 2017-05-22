@@ -33,6 +33,6 @@ export class CommonProvider {
     }
 
     login(id, pwd) {
-        return this.http.post('/login', {id: id, pwd: pwd})
+        return this.http.post('/admin/login', {id: id, pwd: pwd})
     }
 }
