@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { CookieService } from 'angular2-cookie/core';
+import { CookieService } from 'ngx-cookie';
 
 @Injectable()
 export class LoginSession {
-    // 관리자: emp 3, user 4
-    // 지구관리: emp 3, user 2
-    // 매장주인: emp 1, user 2
     constructor(private cookie:CookieService) {
     }
     
@@ -21,6 +18,6 @@ export class LoginSession {
     }
 
     clear() {
-        this.cookie.removeAll();
+        this.cookie.remove('pediaSession');
     }
 }

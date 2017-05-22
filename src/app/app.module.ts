@@ -36,7 +36,7 @@ import { ContactTemplateComponent } from './components/contact-template/contact-
 import { ContactCreateComponent } from './pages/contact-create/contact-create.component';
 import { ContactProvider } from './providers/contact-provider';
 
-import { CookieService, CookieOptions } from 'angular2-cookie/core';
+import { CookieModule } from 'ngx-cookie';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginSession } from './services/login.session';
 
@@ -68,9 +68,10 @@ import { LoginSession } from './services/login.session';
     HttpModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
+    CookieModule.forRoot(),
     routing
   ],
-  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, ContactProvider, UtilService, CookieService, LoginSession, { provide: CookieOptions, useValue: {} }],
+  providers: [HttpService, GlobalVariableService, EditorProvider, AccordionProvider, TableProvider, CommonProvider, ContactProvider, UtilService, LoginSession],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

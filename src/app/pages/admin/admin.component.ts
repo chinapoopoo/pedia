@@ -14,34 +14,12 @@ export class AdminComponent implements OnInit, AfterViewInit {
   constructor(private gVar: GlobalVariableService, private router: Router, private loginSession: LoginSession) { }
 
   ngOnInit() {
-    this.ckNgoLogin();
-    this.checkURL();
+    if(!this.loginSession.isLoggedIn()) {
+      this.router.navigate(['/admin/login']);
+    }
   }
 
   ngAfterViewInit() {
-    this.checkURL();
-  }
-
-  goNav(des: string) {
-    if(!this.loginSession.isLoggedIn()) {
-      this.router.navigate(['/admin/login']);
-      return ;
-    }
-    this.router.navigate([des]);
-  }
-
-  logout() {
-    this.loginSession.setLogin(false);
-    this.router.navigate(['/']);
-  }
-
-  ckNgoLogin() {
-    if(!this.loginSession.isLoggedIn()) {
-      this.router.navigate(['/admin/login']);
-    }
-  }
-
-  checkURL() {
     if(this.router.url == '/admin') {
       this.selectedTab = 'main';
     }
@@ -56,5 +34,18 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
     if(!this.loginSession.isLoggedIn())
       this.selectedTab = 'login';
+  }
+
+  goNav(des: string) {
+    if(!this.loginSession.isLoggedIn()) {
+      this.router.navigate(['/admin/login']);
+      return ;
+    }
+    this.router.navigate([des]);
+  }
+
+  logout() {
+    this.loginSession.clear();
+    this.router.navigate(['/']);
   }
 }
