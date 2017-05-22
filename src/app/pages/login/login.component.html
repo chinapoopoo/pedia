@@ -3,7 +3,7 @@
 </div>
 <br/>
 <div>
-  비밀번호: <input type="password" name="" value="" [(ngModel)]="pwd">
+  비밀번호: <input type="password" name="" value="" [(ngModel)]="pwd" (keyup.enter)="login()">
 </div>
 <br/>
 <button type="" (click)="login()">로그인</button>

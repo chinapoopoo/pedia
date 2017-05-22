@@ -62,10 +62,9 @@ export class ContactTemplateComponent implements OnInit, AfterViewInit {
       
       var infoWindow = new naver.maps.InfoWindow({
         content: [
-          '<div style="padding: 7px 10px;">',
+          '<div style="padding: 7px 10px; max-width: 300px;">',
           '   <div style="font-size: 18px; font-weight: 600; margin: 3px 0px;">'+this.contactList[i].title+' </div>',
-          '   <div style="font-size: 15px; margin: 3px 0px;">'+this.contactList[i].content+'</div>',
-          '   <div>'+this.contactList[i].tel+'</div>',
+          '   <div style="font-size: 15px; margin: 3px 0px;">'+'tel: ' +this.contactList[i].tel+'</div>',
           '</div>'].join(''),
         borderWidth: 1,
         borderColor: "#A3BDD7",

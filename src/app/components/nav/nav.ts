@@ -52,6 +52,27 @@ export class NavigationComponent implements OnInit  {
         }
     }
 
+    whatClass(category) {
+        for(var i = 0; i < this.gVar.category.length; i++) {
+            if(this.gVar.category[i].id == category) {
+                return this.getIconClass(this.gVar.category[i].name);
+            }
+        }
+    }
+
+    getIconClass(categoryName) {
+        switch (categoryName) {
+            case 'editor':
+                return 'fa-file-text';
+            case 'table':
+                return 'fa-table';
+            case 'accordion':
+                return 'fa-expand';
+            case 'contact':
+                return 'fa-globe';
+        }
+    }
+
     search() {
         this.router.navigate(['/search', this.search_txt]);
         this.search_txt = '';

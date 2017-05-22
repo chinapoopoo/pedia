@@ -9,9 +9,13 @@
   <div class="content cursor">
     <div class="list-group">
       <a class="list-group-item" *ngFor="let item of contactList; let idx = index" (click)="openInfo(item.addY, item.addX, idx)">
-        {{item.title}}
-        {{item.content}}
-        {{item.tel}}
+        <h3><i class="fa fa-map-marker" aria-hidden="true"></i> {{item.title}}</h3>
+        <div>
+          <i class="fa fa-phone" aria-hidden="true"></i> {{item.tel}}
+        </div>
+        <div>
+          <i class="fa fa-arrow-right" aria-hidden="true"></i> {{item.content}}
+        </div>
         <hr/>
       </a>
     </div>
